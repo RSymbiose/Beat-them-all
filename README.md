@@ -4,4 +4,11 @@
 
 >Personnages
 >>Heros
+>>> Personnages jouables
 >>Ennemis
+>>> Brigands
+>>>> Brigand 1
+>>> Gangster
+>>>> Gangster 1
+>>> Catcheur
+>>>> Catcheur 1

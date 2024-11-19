@@ -1,5 +1,7 @@
 # Beat-them-all
 
+A Lola and Romain project
+
 git add .<br>
 git commit -m "message de modification"<br>
 git push

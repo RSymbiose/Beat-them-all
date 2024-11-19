@@ -1,4 +1,4 @@
-package org.example;
+package Persos;
 
 public abstract class Personnages {
     protected String nom;

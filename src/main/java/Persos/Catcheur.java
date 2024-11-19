@@ -1,4 +1,4 @@
-package org.example;
+package Persos;
 
 public class Catcheur extends Ennemi{
 }

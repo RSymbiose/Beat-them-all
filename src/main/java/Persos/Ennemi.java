@@ -2,12 +2,10 @@ package Persos;
 
 public abstract class Ennemi extends Personnages {
     protected boolean agressif;
-    protected int experienceDonnee;
 
     public Ennemi(String nom, int pointsDeVie, int attaque, int defense) {
         super(nom, pointsDeVie, attaque, defense);
         this.agressif = true;
-        this.experienceDonnee = pointsDeVie / 5;  // L'expérience donnée est basée sur les PV
     }
 
     // Getters
@@ -15,17 +13,9 @@ public abstract class Ennemi extends Personnages {
         return agressif;
     }
 
-    public int getExperienceDonnee() {
-        return experienceDonnee;
-    }
-
     // Setters
     public void setAgressif(boolean agressif) {
         this.agressif = agressif;
-    }
-
-    public void setExperienceDonnee(int experienceDonnee) {
-        this.experienceDonnee = experienceDonnee;
     }
 
     // Méthodes spécifiques aux ennemis

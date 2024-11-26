@@ -1,30 +1,29 @@
 package Persos;
 
 public class Brigand extends Ennemi {
-    private boolean armé;  // Indique si le brigand possède une arme
+    private boolean armee;
 
     public Brigand(String nom) {
-        // Valeurs par défaut pour un brigand
-        super(nom, 50, 8, 3, 20);  // PV:50, Attaque:8, Défense:3, Or:20
-        this.armé = true;
+        super(nom, 50, 8, 3);  // PV:50, Attaque:8, Défense:3
+        this.armee = true;
     }
 
-    public Brigand(String nom, int pointsDeVie, int attaque, int defense, int or, boolean armé) {
-        super(nom, pointsDeVie, attaque, defense, or);
-        this.armé = armé;
+    public Brigand(String nom, int pointsDeVie, int attaque, int defense, boolean armee) {
+        super(nom, pointsDeVie, attaque, defense);
+        this.armee = armee;
     }
 
     public boolean isArmé() {
-        return armé;
+        return armee;
     }
 
-    public void setArmé(boolean armé) {
-        this.armé = armé;
+    public void setArmé(boolean armee) {
+        this.armee = armee;
     }
 
     @Override
     public void attaquer(Personnages cible) {
-        if (armé) {
+        if (armee) {
             // Si le brigand est armé, il inflige plus de dégâts
             int attaqueBonus = 2;
             this.setAttaque(this.getAttaque() + attaqueBonus);

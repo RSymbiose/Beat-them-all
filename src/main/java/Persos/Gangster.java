@@ -5,13 +5,12 @@ public class Gangster extends Ennemi {
     private String arme;
 
     public Gangster(String nom) {
-        // Valeurs par défaut pour un gangster
-        super(nom, 70, 12, 4, 50);  // PV:70, Attaque:12, Défense:4, Or:50
-        this.arme = "Tommy Gun";
+        super(nom, 70, 12, 4);  // PV:70, Attaque:12, Défense:4
+        this.arme = "MISE A MORT";
     }
 
-    public Gangster(String nom, int pointsDeVie, int attaque, int defense, int or, String arme) {
-        super(nom, pointsDeVie, attaque, defense, or);
+    public Gangster(String nom, int pointsDeVie, int attaque, int defense, String arme) {
+        super(nom, pointsDeVie, attaque, defense);
         this.arme = arme;
     }
 
@@ -25,8 +24,8 @@ public class Gangster extends Ennemi {
 
     @Override
     public void attaquer(Personnages cible) {
-        if (arme.equals("Tommy Gun")) {
-            System.out.println(this.getNom() + " tire une rafale avec son Tommy Gun !");
+        if (arme.equals("MISE A MORT")) {
+            System.out.println(this.getNom() + " tire une rafale avec sa MISE A MORT !");
             int attaqueBonus = 5;
             this.setAttaque(this.getAttaque() + attaqueBonus);
             super.attaquer(cible);

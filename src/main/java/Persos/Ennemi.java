@@ -1,22 +1,16 @@
 package Persos;
 
 public abstract class Ennemi extends Personnages {
-    protected int or;  // Quantité d'or que l'ennemi possède
-    protected boolean agressif;  // État d'agressivité de l'ennemi
-    protected int experienceDonnee;  // Points d'expérience donnés quand vaincu
+    protected boolean agressif;
+    protected int experienceDonnee;
 
-    public Ennemi(String nom, int pointsDeVie, int attaque, int defense, int or) {
+    public Ennemi(String nom, int pointsDeVie, int attaque, int defense) {
         super(nom, pointsDeVie, attaque, defense);
-        this.or = or;
         this.agressif = true;
         this.experienceDonnee = pointsDeVie / 5;  // L'expérience donnée est basée sur les PV
     }
 
     // Getters
-    public int getOr() {
-        return or;
-    }
-
     public boolean isAgressif() {
         return agressif;
     }
@@ -26,10 +20,6 @@ public abstract class Ennemi extends Personnages {
     }
 
     // Setters
-    public void setOr(int or) {
-        this.or = or;
-    }
-
     public void setAgressif(boolean agressif) {
         this.agressif = agressif;
     }
@@ -49,14 +39,6 @@ public abstract class Ennemi extends Personnages {
         }
     }
 
-    // Méthode pour lâcher le butin quand vaincu
-    public void lacherButin() {
-        if (!this.estVivant()) {
-            System.out.println(this.nom + " laisse tomber " + this.or + " pièces d'or.");
-            System.out.println("Vous gagnez " + this.experienceDonnee + " points d'expérience.");
-        }
-    }
-
     // Méthode pour fuir le combat
     public void fuir() {
         if (this.pointsDeVie < this.pointsDeVie / 4) {  // Fuit si moins de 25% PV
@@ -64,7 +46,6 @@ public abstract class Ennemi extends Personnages {
             double chanceDeFuite = 0.4;  // 40% de chance de fuir
             if (Math.random() < chanceDeFuite) {
                 System.out.println(this.nom + " a réussi à s'enfuir !");
-                this.or = this.or / 2;  // Perd la moitié de son or en fuyant
             } else {
                 System.out.println(this.nom + " n'a pas réussi à s'enfuir !");
             }
@@ -75,7 +56,6 @@ public abstract class Ennemi extends Personnages {
     public void intimider(Personnages cible) {
         if (this.agressif) {
             System.out.println(this.nom + " tente d'intimider " + cible.getNom() + " !");
-            // Peut être utilisé par les classes filles pour réduire la défense de la cible
         }
     }
 

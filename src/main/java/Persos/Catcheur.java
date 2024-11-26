@@ -6,13 +6,13 @@ public class Catcheur extends Ennemi {
 
     public Catcheur(String nom) {
         // Valeurs par défaut pour un catcheur
-        super(nom, 100, 15, 8, 30);
-        this.priseSignature = "Suplex";
+        super(nom, 100, 15, 8);
+        this.priseSignature = "Suplex suuuuuuu";
         this.enColere = false;
     }
 
-    public Catcheur(String nom, int pointsDeVie, int attaque, int defense, int or, String priseSignature) {
-        super(nom, pointsDeVie, attaque, defense, or);
+    public Catcheur(String nom, int pointsDeVie, int attaque, int defense, String priseSignature) {
+        super(nom, pointsDeVie, attaque, defense);
         this.priseSignature = priseSignature;
         this.enColere = false;
     }

@@ -1,6 +1,7 @@
 package Persos;
 
 public class Catcheur extends Ennemi {
+    //possède une prise spéciale et fait plus de dégâts quand il a moins de 50% hp
     private String priseSignature;  // La prise de catch signature
     private boolean enColere;  // État de rage du catcheur
 

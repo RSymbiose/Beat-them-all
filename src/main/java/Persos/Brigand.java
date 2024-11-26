@@ -1,6 +1,7 @@
 package Persos;
 
 public class Brigand extends Ennemi {
+    //Peut posséder une arme, si armé -> alors il fait plus de dégâts
     private boolean armee;
 
     public Brigand(String nom) {
@@ -13,11 +14,11 @@ public class Brigand extends Ennemi {
         this.armee = armee;
     }
 
-    public boolean isArmé() {
+    public boolean isArmee() {
         return armee;
     }
 
-    public void setArmé(boolean armee) {
+    public void setArmee(boolean armee) {
         this.armee = armee;
     }
 

@@ -2,10 +2,11 @@
 package Persos;
 
 public class Gangster extends Ennemi {
+    //Brigand évolué car toujours armé et fait beaucoup de dégâts
     private String arme;
 
     public Gangster(String nom) {
-        super(nom, 70, 12, 4);  // PV:70, Attaque:12, Défense:4
+        super(nom, 70, 15, 4);  // PV:70, Attaque:12, Défense:4
         this.arme = "MISE A MORT";
     }
 

@@ -51,7 +51,7 @@ public class Main {
         // Mettre les autres niveaux ici
 
         int choixNiveau = 0;
-        While (choixNiveau != 1) { //ce qui sera à modifier
+        while (choixNiveau != 1) { //ce qui sera à modifier
             System.out.print("Votre choix (1) : ");
             choixNiveau = scanner.nextInt();
         }

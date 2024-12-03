@@ -31,6 +31,7 @@ public class Jungle extends Carte{
                 Brigand B1= new Brigand("Tim");
                 Brigand B2= new Brigand("Tom");
                 Catcheur C= new Catcheur("Tam");
+
             }
         }
     }

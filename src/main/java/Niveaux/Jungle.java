@@ -19,6 +19,6 @@ public class Jungle extends Carte{
             if (!spawnPlaces.contains(indice)){
                 spawnPlaces.add(indice);}
         }
-        // spawnability :
+        // spawnability : determined by smthing
     }
 }

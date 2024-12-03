@@ -29,5 +29,50 @@ public class Main {
         }
 
         // Création du héros
+        System.out.print("Entrez le nom de votre héros : ");
+        Scanner.nextLine();
+        String nomHero = scanner.nextLine();
+        
+        switch (choixHero) {
+            case 1:
+                joueur = new Succube(nomHero);
+                break;
+            case 2:
+                joueur = new ChevalierSaint(nomHero);
+                break;
+            case 3:
+                joueur = new Elfe(nomHero);
+                break;
+        }
+
+        // Sélection du niveau
+        System.out.println("\nChoisissez votre niveau: ");
+        System.out.println("1. Jungle");
+        // Mettre les autres niveaux ici
+
+        int choixNiveau = 0;
+        While (choixNiveau != 1) { //ce qui sera à modifier
+            System.out.print("Votre choix (1) : ");
+            choixNiveau = scanner.nextInt();
+        }
+
+        // Sélection de la difficulté
+        System.out.println("\nChoisissez la difficulté (1-3) :");
+        System.out.println("1 = Facile, 2 = Normal, 3 = Difficile");
+
+        int difficulte = 0;
+        while (difficulte < 1 || difficulte > 5) {
+            System.out.print("Votre choix (1-5) : ");
+            difficulte = scanner.nextInt();
+        }
+
+        // Création et initialisation du niveau
+        switch (choixNiveau) {
+            case 1:
+                niveau = new Jungle();
+                ((Jungle)niveau).Difficulte(difficulte);
+                break;
+        }
+
     }
 }

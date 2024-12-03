@@ -74,5 +74,30 @@ public class Main {
                 break;
         }
 
+        // Début du jeu
+        System.out.println("\n=== Le jeu commence ===");
+        System.out.println("Héros : " + joueur.getNom());
+        System.out.println("Niveau : Jungle");
+        System.out.println("Difficulté : " + difficulte);
+
+        // Création des ennemis selon la difficulté
+        ArrayList<Ennemi> ennemis = new ArrayList<>();
+        for (int i = 0; i < difficulte; i++) {
+            int typeEnnemi = (int)(Math.random() * 3) + 1;
+            String nomEnnemi = "Ennemi " + (i + 1);
+            
+            switch (typeEnnemi) {
+                case 1:
+                    ennemis.add(new Brigand(nomEnnemi));
+                    break;
+                case 2:
+                    ennemis.add(new Gangster(nomEnnemi));
+                    break;
+                case 3:
+                    ennemis.add(new Catcheur(nomEnnemi));
+                    break;
+            }
+        }
+            
     }
 }

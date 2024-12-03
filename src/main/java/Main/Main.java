@@ -81,23 +81,23 @@ public class Main {
         System.out.println("Difficulté : " + difficulte);
 
         // Création des ennemis selon la difficulté
-        ArrayList<Ennemi> ennemis = new ArrayList<>();
-        for (int i = 0; i < difficulte; i++) {
-            int typeEnnemi = (int)(Math.random() * 3) + 1;
-            String nomEnnemi = "Ennemi " + (i + 1);
-            
-            switch (typeEnnemi) {
-                case 1:
-                    ennemis.add(new Brigand(nomEnnemi));
-                    break;
-                case 2:
-                    ennemis.add(new Gangster(nomEnnemi));
-                    break;
-                case 3:
-                    ennemis.add(new Catcheur(nomEnnemi));
-                    break;
-            }
-        }
+        // ArrayList<Ennemi> ennemis = new ArrayList<>();
+        // for (int i = 0; i < difficulte; i++) {
+        //     int typeEnnemi = (int)(Math.random() * 3) + 1;
+        //     String nomEnnemi = "Ennemi " + (i + 1);
+        //     
+        //     switch (typeEnnemi) {
+        //         case 1:
+        //             ennemis.add(new Brigand(nomEnnemi));
+        //             break;
+        //         case 2:
+        //             ennemis.add(new Gangster(nomEnnemi));
+        //             break;
+        //         case 3:
+        //             ennemis.add(new Catcheur(nomEnnemi));
+        //             break;
+        //     }
+        // }
             
     }
 }

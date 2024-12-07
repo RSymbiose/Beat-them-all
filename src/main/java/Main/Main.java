@@ -30,7 +30,7 @@ public class Main {
 
         // Création du héros
         System.out.print("Entrez le nom de votre héros : ");
-        Scanner.nextLine();
+        scanner.nextLine(); // Fix: consume the leftover newline
         String nomHero = scanner.nextLine();
         
         switch (choixHero) {
@@ -81,23 +81,98 @@ public class Main {
         System.out.println("Difficulté : " + difficulte);
 
         // Création des ennemis selon la difficulté
-        // ArrayList<Ennemi> ennemis = new ArrayList<>();
-        // for (int i = 0; i < difficulte; i++) {
-        //     int typeEnnemi = (int)(Math.random() * 3) + 1;
-        //     String nomEnnemi = "Ennemi " + (i + 1);
-        //     
-        //     switch (typeEnnemi) {
-        //         case 1:
-        //             ennemis.add(new Brigand(nomEnnemi));
-        //             break;
-        //         case 2:
-        //             ennemis.add(new Gangster(nomEnnemi));
-        //             break;
-        //         case 3:
-        //             ennemis.add(new Catcheur(nomEnnemi));
-        //             break;
-        //     }
-        // }
-            
+        ArrayList<Ennemi> ennemis = new ArrayList<>();
+        for (int i = 0; i < difficulte; i++) {
+            int typeEnnemi = (int)(Math.random() * 3) + 1;
+            String nomEnnemi = "Ennemi " + (i + 1);
+
+            switch (typeEnnemi) {
+                case 1:
+                    ennemis.add(new Brigand(nomEnnemi));
+                    break;
+                case 2:
+                    ennemis.add(new Gangster(nomEnnemi));
+                    break;
+                case 3:
+                    ennemis.add(new Catcheur(nomEnnemi));
+                    break;
+            }
+        }
+
+        // Boucle de jeu
+        boolean partieEnCours = true;
+        while (partieEnCours) {
+            // Tour du joueur
+            System.out.println("\n=== Tour de " + joueur.getNom() + " ===");
+            System.out.println("PV: " + joueur.getPointsDeVie());
+            System.out.println("\nEnnemis restants :");
+
+            for (int i = 0; i < ennemis.size(); i++) {
+                if (ennemis.get(i).estVivant()) {
+                    System.out.println((i + 1) + ". " + ennemis.get(i).getNom() +
+                            " (PV: " + ennemis.get(i).getPointsDeVie() + ")");
+                }
+            }
+
+            System.out.println("\nActions disponibles :");
+            System.out.println("1. Attaquer");
+            System.out.println("2. Utiliser capacité spéciale");
+            System.out.println("3. Quitter la partie");
+
+            int action = scanner.nextInt();
+
+            if (action == 3) {
+                partieEnCours = false;
+                continue;
+            }
+
+            // Sélection de la cible
+            System.out.println("Choisissez une cible (1-" + ennemis.size() + ") :");
+            int cible = scanner.nextInt() - 1;
+
+            if (cible >= 0 && cible < ennemis.size()) {
+                if (action == 1) {
+                    joueur.attaquer(ennemis.get(cible));
+                } else if (action == 2) {
+                    joueur.utiliserCapaciteSpeciale(ennemis.get(cible));
+                }
+            }
+
+            // Tour des ennemis
+            for (Ennemi ennemi : ennemis) {
+                if (ennemi.estVivant()) {
+                    // Vérifie si l'ennemi n'est pas charmé (pour la Succube)
+                    if (joueur instanceof Succube && ((Succube)joueur).estCharme(ennemi)) {
+                        System.out.println(ennemi.getNom() + " est charmé et ne peut pas attaquer !");
+                        continue;
+                    }
+                    ennemi.attaquer(joueur);
+                }
+            }
+
+            // Vérifie les conditions de fin
+            if (!joueur.estVivant()) {
+                System.out.println("\n=== Game Over ===");
+                System.out.println(joueur.getNom() + " a été vaincu !");
+                partieEnCours = false;
+            }
+
+            boolean tousEnnemisVaincus = true;
+            for (Ennemi ennemi : ennemis) {
+                if (ennemi.estVivant()) {
+                    tousEnnemisVaincus = false;
+                    break;
+                }
+            }
+
+            if (tousEnnemisVaincus) {
+                System.out.println("\n=== Victoire ! ===");
+                System.out.println("Tous les ennemis ont été vaincus !");
+                partieEnCours = false;
+            }
+        }
+
+        scanner.close();
+        System.out.println("\nFin du jeu. Merci d'avoir joué !");
     }
 }

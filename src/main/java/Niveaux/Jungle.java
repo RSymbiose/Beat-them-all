@@ -2,6 +2,7 @@ package Niveaux;
 
 import Persos.Brigand;
 import Persos.Catcheur;
+import Persos.Gangster;
 
 import java.util.ArrayList;
 
@@ -47,7 +48,7 @@ public class Jungle extends Carte {
             switch (typeEnnemi) {
                 case 0 -> map.add(place, new Brigand("Brigand_" + place));
                 case 1 -> map.add(place, new Catcheur("Catcheur_" + place));
-                default -> map.add(place, new Brigand("AutreEnnemi_" + place));
+                default -> map.add(place, new Gangster("Gangster" + place));
             }
         }
     }

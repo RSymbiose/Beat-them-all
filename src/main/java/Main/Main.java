@@ -5,8 +5,10 @@ import Niveaux.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +17,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Hero joueur = null;
         Carte niveau = null;
+        ArrayList<Integer> sallesNettoyees; // Nouvelle liste pour stocker l'état des salles
 
         try (FileWriter logFile = new FileWriter("game_log.txt")) {
             logFile.write("Début de la partie\n");
@@ -61,6 +64,8 @@ public class Main {
             System.out.println("\n=== Le jeu commence ===");
             logFile.write("Le jeu commence...\n");
 
+            sallesNettoyees = new ArrayList<>(Collections.nCopies(niveau.getLongueur(), 0)); // Initialise une liste de longueur égale au niveau
+
             boolean partieEnCours = true;
             int position = 0;
 
@@ -68,8 +73,8 @@ public class Main {
                 System.out.println("\n=== Position actuelle : " + position + "/" + niveau.getLongueur() + " ===");
                 logFile.write("Le héros est à la position " + position + ".\n");
 
-                // Rencontre aléatoire
-                if (Math.random() < 0.5) {
+                // Vérifier si la salle est nettoyée
+                if (sallesNettoyees.get(position) == 0) {
                     System.out.println("Vous rencontrez des ennemis !");
                     logFile.write("Rencontre avec des ennemis.\n");
 
@@ -120,19 +125,49 @@ public class Main {
                                 logFile.write(joueur.getNom() + " a maintenant " + joueur.getPointsDeVie() + " PV.\n");
                             }
                         }
+
+                        // Check if the player can proceed
+                        if (joueur.estVivant() && ennemis.isEmpty()) {
+                            sallesNettoyees.set(position, 1); // Marque la salle comme nettoyée
+                            break;  // Break out of combat loop if all enemies are defeated
+                        }
+                    }
+
+                    // After combat, check if we need to fight again in the same position
+                    if (!joueur.estVivant() || !ennemis.isEmpty()) {
+                        position = 0;  // Reset position if there are still enemies
                     }
                 } else {
-                    System.out.println("Aucun ennemi ici. Vous avancez.");
-                    logFile.write("Le héros avance sans rencontrer d'ennemi.\n");
+                    System.out.println("Aucun ennemi ici. Vous avancez ou reculez.");
+                    logFile.write("Le héros avance ou recule sans rencontrer d'ennemi.\n");
+
+                    // Menu déplacement
+                    System.out.println("\nActions disponibles :");
+                    System.out.println("1. Avancer");
+                    System.out.println("2. Reculer");
+                    System.out.print("Votre choix : ");
+                    int action = scanner.nextInt();
+
+                    if (action == 1) {
+                        position++; // Avancer
+                    } else if (action == 2 && position > 0 && sallesNettoyees.get(position - 1) == 1) {
+                        position--; // Reculer uniquement si la salle précédente est nettoyée
+                    } else {
+                        System.out.println("Action invalide ou position déjà à zéro.");
+                    }
                 }
 
-                position++;
+                logFile.write("Position actuelle après action : " + position + ".\n");
+
+                // Check if the player has reached the end of the level
+                if (joueur.estVivant() && position >= niveau.getLongueur()) {
+                    System.out.println("=== Victoire ! Vous avez terminé le parcours ! ===");
+                    logFile.write("Victoire : Le héros a terminé le parcours.\n");
+                    partieEnCours = false;
+                }
             }
 
-            if (joueur.estVivant() && position >= niveau.getLongueur()) {
-                System.out.println("=== Victoire ! Vous avez terminé le parcours ! ===");
-                logFile.write("Victoire : Le héros a terminé le parcours.\n");
-            } else if (!joueur.estVivant()) {
+            if (!joueur.estVivant()) {
                 System.out.println("=== Défaite ! Vous avez été vaincu. ===");
                 logFile.write("Défaite : Le héros a été vaincu.\n");
             }

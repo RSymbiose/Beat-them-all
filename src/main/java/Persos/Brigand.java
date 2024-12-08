@@ -34,4 +34,8 @@ public class Brigand extends Ennemi {
             super.attaquer(cible);
         }
     }
+
+    public String toString() {
+        return "Brigand{" +"nom: "+this.nom+", PV: "+this.pointsDeVie+", attaque: "+this.attaque+", defense: "+this.defense+ ", armee=" + armee + '}';
+    }
 }

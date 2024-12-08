@@ -6,7 +6,7 @@ public class Succube extends Hero {
     private boolean charmeActif;
 
     public Succube(String nom) {
-        super(nom, 60, 50, 5);
+        super(nom, 120, 50, 5);
         this.charmeActif = false;
         this.personnageCharme = null;
     }

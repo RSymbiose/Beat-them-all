@@ -3,7 +3,7 @@ package Niveaux;
 import Persos.Brigand;
 import Persos.Catcheur;
 import Persos.Gangster;
-
+import java.util.Collections;
 import java.util.ArrayList;
 
 public class Jungle extends Carte {
@@ -42,16 +42,22 @@ public class Jungle extends Carte {
             spawnPlaces.add(indice);
         }
 
+        // Si la carte n'est pas encore initialisée, initialise-la correctement
+        if (map == null || map.isEmpty()) {
+            map = new ArrayList<>(Collections.nCopies(longueur, null));
+        }
+
         // Peupler la carte avec des ennemis en fonction de la difficulté
         for (int place : spawnPlaces) {
             int typeEnnemi = (int) (Math.random() * 3); // 0: Brigand, 1: Catcheur, 2: autre ennemi
             switch (typeEnnemi) {
-                case 0 -> map.add(place, new Brigand("Brigand_" + place));
-                case 1 -> map.add(place, new Catcheur("Catcheur_" + place));
-                default -> map.add(place, new Gangster("Gangster" + place));
+                case 0 -> map.set(place, new Brigand("Brigand_" + place));
+                case 1 -> map.set(place, new Catcheur("Catcheur_" + place));
+                default -> map.set(place, new Gangster("Gangster" + place));
             }
         }
     }
+
 
     // Getters et Setters
     public int getLongueur() {

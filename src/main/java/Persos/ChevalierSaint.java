@@ -6,7 +6,7 @@ public class ChevalierSaint extends Hero {
     private boolean purificationActive;
     
     public ChevalierSaint(String nom) {
-        super(nom, 100, 30, 20);
+        super(nom, 200, 30, 20);
         this.purificationActive = false;
         this.personnagePurifie = null;
     }

@@ -1,6 +1,6 @@
 package Main;
 
-import Persos.*;  // Assurez-vous d'importer toutes les classes de la package Persos
+import Persos.*;
 import Niveaux.*;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -25,9 +24,9 @@ public class Main {
             // Choix du héros
             System.out.println("=== Bienvenue dans le jeu ===");
             System.out.println("Choisissez votre héros");
-            System.out.println("1. Succube (PV:60, ATT:50, DEF:5) - Peut charmer un ennemi");
-            System.out.println("2. Chevalier Saint (PV:100, ATT:30, DEF:20) - Peut purifier un ennemi");
-            System.out.println("3. Elfe (PV:80, ATT:40, DEF:10) - Peut tirer sur plusieurs ennemis");
+            System.out.println("1. Succube (PV:120, ATT:50, DEF:5) - Peut charmer un ennemi");
+            System.out.println("2. Chevalier Saint (PV:200, ATT:30, DEF:20) - Peut purifier un ennemi");
+            System.out.println("3. Elfe (PV:160, ATT:40, DEF:10) - Peut tirer sur plusieurs ennemis");
 
             int choixHero = 0;
             while (choixHero < 1 || choixHero > 3) {
@@ -53,12 +52,31 @@ public class Main {
             System.out.print("Votre choix (1) : ");
             int choixNiveau = scanner.nextInt();
 
-            // Création de la carte
-            if (choixNiveau == 1) {
-                niveau = new Jungle("Jungle Mystérieuse", 10);
+            // Saisie de la difficulté
+            System.out.println("\nChoisissez la difficulté:");
+            System.out.println("1. Facile");
+            System.out.println("2. Moyen");
+            System.out.println("3. Difficile");
+            System.out.print("Votre choix (1-3) : ");
+            int choixDifficulte = scanner.nextInt();
+            double difficulty = 0;
+            switch (choixDifficulte) {
+                case 1 -> difficulty = 3; // Facile
+                case 2 -> difficulty = 5; // Moyen
+                case 3 -> difficulty = 8; // Difficile
+                default -> {
+                    System.out.println("Choix de difficulté invalide.");
+                    return;
+                }
             }
 
-            logFile.write("Carte choisie : " + niveau.getNom() + "\n");
+            // Création de la carte avec la difficulté choisie
+            if (choixNiveau == 1) {
+                niveau = new Jungle("Jungle Mystérieuse", 10); // Longueur par défaut
+                ((Jungle) niveau).difficulte((int) difficulty); // Casting de Carte à Jungle avant d'accéder à la méthode difficulte()
+            }
+
+            logFile.write("Carte choisie : " + niveau.getNom() + " avec difficulté " + difficulty + "\n");
 
             // Début de la partie
             System.out.println("\n=== Le jeu commence ===");
@@ -159,7 +177,6 @@ public class Main {
 
                 logFile.write("Position actuelle après action : " + position + ".\n");
 
-                // Check if the player has reached the end of the level
                 if (joueur.estVivant() && position >= niveau.getLongueur()) {
                     System.out.println("=== Victoire ! Vous avez terminé le parcours ! ===");
                     logFile.write("Victoire : Le héros a terminé le parcours.\n");
@@ -172,24 +189,23 @@ public class Main {
                 logFile.write("Défaite : Le héros a été vaincu.\n");
             }
 
+            logFile.write("Fin de la partie.\n");
+            scanner.close();
         } catch (IOException e) {
-            System.out.println("Erreur lors de l'écriture du fichier de log : " + e.getMessage());
+            System.err.println("Erreur lors de l'écriture du journal de jeu : " + e.getMessage());
         }
-
-        scanner.close();
-        System.out.println("\nFin du jeu. Merci d'avoir joué !");
     }
 
     private static ArrayList<Ennemi> creerRencontreAleatoire() {
         ArrayList<Ennemi> ennemis = new ArrayList<>();
-        Random random = new Random();
-        int nbEnnemis = random.nextInt(3) + 1;
+        Random rand = new Random();
+        int nombreEnnemis = rand.nextInt(3) + 1; // Entre 1 et 3 ennemis par rencontre
 
-        for (int i = 0; i < nbEnnemis; i++) {
-            switch (random.nextInt(3)) {
-                case 0 -> ennemis.add(new Brigand("Brigand " + (i + 1)));
-                case 1 -> ennemis.add(new Gangster("Gangster " + (i + 1)));
-                case 2 -> ennemis.add(new Catcheur("Catcheur " + (i + 1)));
+        for (int i = 0; i < nombreEnnemis; i++) {
+            switch (rand.nextInt(3)) {
+                case 0 -> ennemis.add(new Brigand("Brigand_" + i));
+                case 1 -> ennemis.add(new Catcheur("Catcheur_" + i));
+                default -> ennemis.add(new Gangster("Gangster_" + i));
             }
         }
 

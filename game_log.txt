@@ -1,108 +1,129 @@
 Début de la partie
-Héros choisi : Symbiose
-Carte choisie : Jungle Mystérieuse
+Héros choisi : 1
+Carte choisie : Jungle Mystérieuse avec difficulté 3.0
 Le jeu commence...
 Le héros est à la position 0.
 Rencontre avec des ennemis.
-Symbiose attaque Catcheur 1.
-Symbiose attaque Catcheur 1.
-Catcheur 1 est vaincu.
+1 attaque Gangster_0.
+1 attaque Gangster_0.
+Gangster_0 est vaincu.
 Position actuelle après action : 0.
 Le héros est à la position 0.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 1.
 Le héros est à la position 1.
 Rencontre avec des ennemis.
-Symbiose attaque Brigand 1.
-Brigand 1 est vaincu.
-Position actuelle après action : 1.
-Le héros est à la position 1.
-Le héros avance ou recule sans rencontrer d'ennemi.
-Position actuelle après action : 0.
-Le héros est à la position 0.
-Le héros avance ou recule sans rencontrer d'ennemi.
+1 attaque Gangster_0.
+1 attaque Gangster_0.
+Gangster_0 est vaincu.
 Position actuelle après action : 1.
 Le héros est à la position 1.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 2.
 Le héros est à la position 2.
 Rencontre avec des ennemis.
-Symbiose utilise sa capacité spéciale sur Gangster 1.
-Gangster 1 attaque Symbiose.
-Symbiose a maintenant 45 PV.
-Symbiose attaque Gangster 1.
-Symbiose attaque Gangster 1.
-Gangster 1 est vaincu.
+1 attaque Gangster_0.
+1 attaque Gangster_0.
+Gangster_0 est vaincu.
+1 attaque Catcheur_1.
+Catcheur_1 attaque 1.
+1 a maintenant 103 PV.
+1 attaque Catcheur_1.
+Catcheur_1 est vaincu.
 Position actuelle après action : 2.
 Le héros est à la position 2.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 3.
 Le héros est à la position 3.
 Rencontre avec des ennemis.
-Symbiose attaque Gangster 1.
-Symbiose attaque Gangster 1.
-Gangster 1 est vaincu.
-Symbiose attaque Gangster 2.
-Gangster 2 attaque Symbiose.
-Symbiose a maintenant 20 PV.
-Symbiose attaque Gangster 2.
-Gangster 2 est vaincu.
+1 attaque Brigand_0.
+Brigand_0 est vaincu.
+1 attaque Brigand_1.
+Brigand_1 est vaincu.
+1 attaque Catcheur_2.
+1 attaque Catcheur_2.
+Catcheur_2 est vaincu.
 Position actuelle après action : 3.
 Le héros est à la position 3.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 4.
 Le héros est à la position 4.
 Rencontre avec des ennemis.
-Symbiose attaque Catcheur 1.
-Symbiose attaque Catcheur 1.
-Catcheur 1 est vaincu.
+1 attaque Gangster_0.
+Gangster_0 attaque 1.
+1 a maintenant 88 PV.
+1 attaque Gangster_0.
+Gangster_0 est vaincu.
 Position actuelle après action : 4.
 Le héros est à la position 4.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 5.
 Le héros est à la position 5.
 Rencontre avec des ennemis.
-Symbiose attaque Catcheur 1.
-Symbiose attaque Catcheur 1.
-Catcheur 1 est vaincu.
+1 attaque Gangster_0.
+1 attaque Gangster_0.
+Gangster_0 est vaincu.
+Brigand_1 attaque 1.
+1 a maintenant 83 PV.
+Brigand_2 attaque 1.
+1 a maintenant 73 PV.
+1 attaque Brigand_1.
+Brigand_1 est vaincu.
+1 attaque Brigand_2.
+Brigand_2 est vaincu.
 Position actuelle après action : 5.
 Le héros est à la position 5.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 6.
 Le héros est à la position 6.
 Rencontre avec des ennemis.
-Symbiose attaque Catcheur 1.
-Symbiose attaque Catcheur 1.
-Catcheur 1 est vaincu.
-Symbiose attaque Brigand 2.
-Brigand 2 est vaincu.
+1 attaque Brigand_0.
+Brigand_0 est vaincu.
+1 attaque Brigand_1.
+Brigand_1 est vaincu.
+Catcheur_2 attaque 1.
+1 a maintenant 55 PV.
+1 attaque Catcheur_2.
+1 attaque Catcheur_2.
+Catcheur_2 est vaincu.
 Position actuelle après action : 6.
 Le héros est à la position 6.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 7.
 Le héros est à la position 7.
 Rencontre avec des ennemis.
-Symbiose attaque Brigand 1.
-Brigand 1 est vaincu.
-Symbiose attaque Brigand 2.
-Brigand 2 est vaincu.
-Brigand 3 attaque Symbiose.
-Symbiose a maintenant 15 PV.
-Symbiose attaque Brigand 3.
-Brigand 3 est vaincu.
+1 attaque Catcheur_0.
+1 attaque Catcheur_0.
+Catcheur_0 est vaincu.
+Gangster_1 attaque 1.
+1 a maintenant 40 PV.
+1 attaque Gangster_1.
+1 attaque Gangster_1.
+Gangster_1 est vaincu.
 Position actuelle après action : 7.
 Le héros est à la position 7.
 Le héros avance ou recule sans rencontrer d'ennemi.
 Position actuelle après action : 8.
 Le héros est à la position 8.
 Rencontre avec des ennemis.
-Symbiose attaque Catcheur 1.
-Symbiose attaque Catcheur 1.
-Catcheur 1 est vaincu.
-Symbiose attaque Catcheur 2.
-Catcheur 2 attaque Symbiose.
-Symbiose a maintenant -2 PV.
-Gangster 3 attaque Symbiose.
-Symbiose a maintenant -17 PV.
+1 attaque Gangster_0.
+Gangster_0 attaque 1.
+1 a maintenant 25 PV.
+1 attaque Gangster_0.
+Gangster_0 est vaincu.
+Position actuelle après action : 8.
+Le héros est à la position 8.
+Le héros avance ou recule sans rencontrer d'ennemi.
+Position actuelle après action : 9.
+Le héros est à la position 9.
+Rencontre avec des ennemis.
+1 attaque Catcheur_0.
+1 attaque Catcheur_0.
+Catcheur_0 est vaincu.
+Gangster_1 attaque 1.
+1 a maintenant 10 PV.
+Gangster_2 attaque 1.
+1 a maintenant -5 PV.
 Position actuelle après action : 0.
 Défaite : Le héros a été vaincu.
+Fin de la partie.

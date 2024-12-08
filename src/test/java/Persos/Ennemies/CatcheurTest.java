@@ -1,5 +1,6 @@
 package Persos.Ennemies;
 
+import Persos.Catcheur;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,21 +9,24 @@ class CatcheurTest {
 
     @Test
     void getPriseSignature() {
+        Catcheur C1 = new Catcheur("C1");
+        assertEquals(C1.getPriseSignature(), "Suplex suuuuuuu");
     }
 
     @Test
     void isEnColere() {
-    }
-
-    @Test
-    void setEnColere() {
+        Catcheur C1 = new Catcheur("C1", 60, 7, 1, "Coup de pied retourné");
+        assertFalse(C1.isEnColere());
+        C1.setEnColere(true);
+        assertTrue(C1.isEnColere());
     }
 
     @Test
     void prendreDegats() {
-    }
-
-    @Test
-    void attaquer() {
+        Catcheur C1 = new Catcheur("C1", 60, 7, 1, "Coup de pied retourné");
+        C1.prendreDegats(10);
+        assertEquals(C1.getPointsDeVie(), 50);
+        C1.prendreDegats(50);
+        assertEquals(C1.getPointsDeVie(), 0);
     }
 }

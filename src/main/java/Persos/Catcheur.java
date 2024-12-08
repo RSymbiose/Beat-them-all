@@ -38,7 +38,7 @@ public class Catcheur extends Ennemi {
     public void prendreDegats(int degats) {
         super.prendreDegats(degats);
         // Le catcheur devient enragé quand il perd trop de vie
-        if (this.getPointsDeVie() < 50 && !enColere) {
+        if (this.getPointsDeVie() < 50 && !enColere && this.estVivant()) {
             enColere = true;
             this.setAttaque(this.getAttaque() + 5);
             System.out.println(this.getNom() + " devient enragé ! Son attaque augmente !");

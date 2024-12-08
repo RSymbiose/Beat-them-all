@@ -1,32 +1,16 @@
 package Persos.Ennemies;
 
+import Persos.Catcheur;
+import Persos.Ennemi;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class EnnemiTest {
-
-    @Test
-    void isAgressif() {
-    }
-
-    @Test
-    void setAgressif() {
-    }
-
     @Test
     void prendreDegats() {
-    }
-
-    @Test
-    void fuir() {
-    }
-
-    @Test
-    void intimider() {
-    }
-
-    @Test
-    void attaquer() {
+        Ennemi E1 = new Catcheur("E1", 20, 10, 10, "sheeeeeesh");
+        E1.prendreDegats(10);
+        assertEquals(E1.getPointsDeVie(), 10);
     }
 }

@@ -36,6 +36,6 @@ public class Brigand extends Ennemi {
     }
 
     public String toString() {
-        return "Brigand{" +"nom: "+this.nom+", PV: "+this.pointsDeVie+", attaque: "+this.attaque+", defense: "+this.defense+ ", armee=" + armee + '}';
+        return "Brigand{" +"nom: "+this.nom+", PV: "+this.pointsDeVie+", attaque: "+this.attaque+", defense: "+this.defense+ ", armee: " + armee + "}";
     }
 }

@@ -1,6 +1,6 @@
 package Persos;
 
-public abstract class Hero extends Personnages {
+public abstract class Hero extends Personnages implements HeroInterface {
     private boolean capaciteSpecialeUtilisee;
 
     public Hero(String nom, int pointsDeVie, int attaque, int defense) {

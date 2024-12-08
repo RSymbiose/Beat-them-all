@@ -6,21 +6,18 @@ public class Carte {
     private double difficulty;
     private ArrayList<Object> map; // Déclaration de la carte
     private String nom;            // Nouveau champ : nom de la carte
-    private int longueur;          // Nouveau champ : longueur de la carte
 
     // Constructeurs
     public Carte() {
         this.difficulty = 0;
         this.map = new ArrayList<>();
         this.nom = "Carte"; // Nom par défaut
-        this.longueur = 0;   // Longueur par défaut
     }
 
-    public Carte(ArrayList<Object> map, double difficulty, String nom, int longueur) {
+    public Carte(ArrayList<Object> map, double difficulty, String nom) {
         this.map = map;
         this.difficulty = difficulty;
         this.nom = nom;
-        this.longueur = longueur;
     }
 
     // Getter et setter pour la difficulté
@@ -48,14 +45,5 @@ public class Carte {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    // Getter et setter pour la longueur
-    public int getLongueur() {
-        return longueur;
-    }
-
-    public void setLongueur(int longueur) {
-        this.longueur = longueur;
     }
 }

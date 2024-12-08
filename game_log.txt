@@ -1,0 +1,48 @@
+Début de la partie
+Héros choisi : Symbiose
+Carte choisie : Jungle Mystérieuse
+Le jeu commence...
+Le héros est à la position 0.
+Le héros avance sans rencontrer d'ennemi.
+Le héros est à la position 1.
+Rencontre avec des ennemis.
+Symbiose attaque Gangster 1.
+Symbiose attaque Gangster 1.
+Gangster 1 est vaincu.
+Symbiose attaque Gangster 2.
+Symbiose attaque Gangster 2.
+Gangster 2 est vaincu.
+Symbiose attaque Catcheur 3.
+Catcheur 3 attaque Symbiose.
+Symbiose a maintenant 50 PV.
+Symbiose attaque Catcheur 3.
+Catcheur 3 est vaincu.
+Le héros est à la position 2.
+Le héros avance sans rencontrer d'ennemi.
+Le héros est à la position 3.
+Rencontre avec des ennemis.
+Symbiose attaque Gangster 1.
+Symbiose attaque Gangster 1.
+Gangster 1 est vaincu.
+Symbiose attaque Brigand 2.
+Brigand 2 est vaincu.
+Catcheur 3 attaque Symbiose.
+Symbiose a maintenant 40 PV.
+Symbiose attaque Catcheur 3.
+Symbiose attaque Catcheur 3.
+Catcheur 3 est vaincu.
+Le héros est à la position 4.
+Le héros avance sans rencontrer d'ennemi.
+Le héros est à la position 5.
+Le héros avance sans rencontrer d'ennemi.
+Le héros est à la position 6.
+Le héros avance sans rencontrer d'ennemi.
+Le héros est à la position 7.
+Rencontre avec des ennemis.
+Symbiose attaque Brigand 1.
+Brigand 1 est vaincu.
+Le héros est à la position 8.
+Le héros avance sans rencontrer d'ennemi.
+Le héros est à la position 9.
+Le héros avance sans rencontrer d'ennemi.
+Victoire : Le héros a terminé le parcours.

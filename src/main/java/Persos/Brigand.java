@@ -5,7 +5,7 @@ public class Brigand extends Ennemi {
     private boolean armee;
 
     public Brigand(String nom) {
-        super(nom, 50, 8, 3);  // PV:50, Attaque:8, Défense:3
+        super(nom, 50, 8, 0);  // PV:50, Attaque:8, Défense:3
         this.armee = true;
     }
 

@@ -7,7 +7,7 @@ public class Catcheur extends Ennemi {
 
     public Catcheur(String nom) {
         // Valeurs par défaut pour un catcheur
-        super(nom, 100, 15, 8);
+        super(nom, 100, 15, 0);
         this.priseSignature = "Suplex suuuuuuu";
         this.enColere = false;
     }

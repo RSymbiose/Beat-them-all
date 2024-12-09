@@ -57,4 +57,8 @@ public class Catcheur extends Ennemi {
             super.attaquer(cible);
         }
     }
+
+    public String toString() {
+        return "Catcheur{" +"nom: "+this.nom+", PV: "+this.pointsDeVie+", attaque: "+this.attaque+", defense: "+this.defense + "}";
+    }
 }

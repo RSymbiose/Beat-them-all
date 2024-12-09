@@ -1,9 +1,8 @@
 package Persos;
 
 public class Succube extends Hero {
-    // La succube peut charmer un ennemi, celui-ci ne pourra pas l'attaquer durant un tour et peut passer à travers la défense adverse
     private Personnages personnageCharme;
-    private boolean charmeActif;
+    public boolean charmeActif;
 
     public Succube(String nom) {
         super(nom, 120, 50, 5);
@@ -30,9 +29,19 @@ public class Succube extends Hero {
         return charmeActif && personnageCharme == personnage;
     }
 
-    // Méthode pour réinitialiser le charme au début d'un nouveau tour
+    // Réinitialiser la capacité spéciale après chaque tour
     public void finCharme() {
         this.charmeActif = false;
         this.personnageCharme = null;
+    }
+
+    @Override
+    public void attaquer(Personnages cible) {
+        // Si l'ennemi est charmé, on ne fait rien
+        if (estCharme(cible)) {
+            System.out.println(getNom() + " ne peut pas attaquer " + cible.getNom() + " car il est charmé.");
+        } else {
+            super.attaquer(cible);
+        }
     }
 }

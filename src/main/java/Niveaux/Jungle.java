@@ -34,7 +34,7 @@ public class Jungle extends Carte {
         super.setDifficulty(diff);
 
         System.out.println("\n=== Génération de la carte ===");
-        System.out.println("Difficulté : " + diff + " ennemis à placer");
+        System.out.println("Difficulté : " + diff*3 + " ennemis à placer");
         System.out.println("Longueur de la carte : " + longueur + " salles\n");
 
         // Nettoyage de la carte précédente
@@ -48,7 +48,7 @@ public class Jungle extends Carte {
         }
 
         System.out.println("Placement des ennemis :");
-        for (int i = 0; i < diff; i++) {
+        for (int i = 0; i < diff * 3; i++) { // Calculer le nombre d'ennemis à placer
             if (availablePositions.isEmpty()) break;
 
             int randomIndex = (int) (Math.random() * availablePositions.size());

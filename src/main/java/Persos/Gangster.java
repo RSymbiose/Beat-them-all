@@ -6,7 +6,7 @@ public class Gangster extends Ennemi {
     private String arme;
 
     public Gangster(String nom) {
-        super(nom, 70, 15, 0);  // PV:70, Attaque:12, Défense:4
+        super(nom, 70, 30, 0);  // PV:70, Attaque:30, Défense:4
         this.arme = "MISE A MORT";
     }
 

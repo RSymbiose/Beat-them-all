@@ -76,7 +76,7 @@ public class Main {
                 logFile.write("Le héros est à la position " + position + ".\n");
 
                 ArrayList<Object> ennemisActuels = niveau.getEnemiesAtPosition(position);
-                ennemisActuels.removeIf(ennemi -> !((Ennemi) ennemi).estVivant()); // Nettoyage initial des ennemis morts
+                ennemisActuels.removeIf(ennemi -> !(ennemi instanceof Ennemi) || !((Ennemi) ennemi).estVivant()); // Nettoyage initial des ennemis morts
 
                 if (!ennemisActuels.isEmpty()) {
                     System.out.println("Vous rencontrez des ennemis !");
@@ -106,10 +106,21 @@ public class Main {
                                 ennemisActuels.remove(0);
                                 niveau.clearEnemiesAtPosition(position); // Suppression du monstre de la position
                             }
-                        } else if (action == 2 && !joueur.isCapaciteSpecialeUtilisee()) {
-                            joueur.utiliserCapaciteSpeciale((Ennemi) ennemisActuels.get(0));
-                            logFile.write(joueur.getNom() + " utilise sa capacité spéciale.\n");
-                            joueur.setCapaciteSpecialeUtilisee(true);
+                        } else if (action == 2) {
+                            if (joueur instanceof Succube) {
+                                ((Succube) joueur).utiliserCapaciteSpeciale((Ennemi) ennemisActuels.get(0));
+                                logFile.write(joueur.getNom() + " utilise sa capacité spéciale.\n");
+                            } else if (joueur instanceof ChevalierSaint) {
+                                ((ChevalierSaint) joueur).utiliserCapaciteSpeciale((Ennemi) ennemisActuels.get(0));
+                                logFile.write(joueur.getNom() + " utilise sa capacité spéciale.\n");
+                            } else if (joueur instanceof Elfe) {
+                                // Conversion du tableau en array de type Ennemi
+                                Ennemi[] cibles = ennemisActuels.toArray(new Ennemi[0]);
+                                ((Elfe) joueur).tirRapideMultiple(cibles);
+                                logFile.write(joueur.getNom() + " utilise sa capacité spéciale.\n");
+                            } else {
+                                System.out.println("Action invalide ou capacité déjà utilisée.");
+                            }
                         } else {
                             System.out.println("Action invalide ou capacité déjà utilisée.");
                         }
@@ -125,7 +136,10 @@ public class Main {
                                 System.out.println(((Ennemi) monstre).getNom() + " attaque " + joueur.getNom() + ".\n");
                             }
                         }
-
+                        // Réinitialisation de la capacité spéciale après chaque tour
+                        if (joueur instanceof Succube) {
+                            ((Succube) joueur).finCharme();
+                        }
                     }
                 }
 

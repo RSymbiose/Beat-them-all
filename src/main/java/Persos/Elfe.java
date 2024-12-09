@@ -1,7 +1,7 @@
 package Persos;
 
 public class Elfe extends Hero {
-    //Avec son arc rapide, l'elfe peut tirer sur les 3 prochaines cases, mettant tous ses adversaires à -50% hp
+    // Avec son arc rapide, l'elfe peut tirer une super fleche qui met sa cible à -50% hp
     private static final int PORTEE_TIRS = 3;
     private boolean tirRapideActif;
 

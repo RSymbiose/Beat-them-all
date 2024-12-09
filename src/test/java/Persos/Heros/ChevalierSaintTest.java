@@ -26,6 +26,7 @@ class ChevalierSaintTest {
         int degats = B1.getPointsDeVie();
         B1.prendreDegats(degats);
         assertEquals(B1.getPointsDeVie(), 0);
-        System.out.println(ennemi);
+        ennemi.remove(B1);
+        assertTrue(ennemi.isEmpty());
     }
 }

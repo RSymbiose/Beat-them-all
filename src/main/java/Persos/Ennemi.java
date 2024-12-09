@@ -23,7 +23,7 @@ public abstract class Ennemi extends Personnages {
     public void prendreDegats(int degats) {
         super.prendreDegats(degats);
         // L'ennemi devient plus agressif quand il est blessé
-        if (this.pointsDeVie < this.pointsDeVie / 2) {
+        if (this.pointsDeVie < this.pointsDeVie / 2 && this.estVivant()) {
             this.agressif = true;
             System.out.println(this.nom + " devient plus agressif !");
         }

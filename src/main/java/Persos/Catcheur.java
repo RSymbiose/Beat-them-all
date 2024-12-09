@@ -7,7 +7,7 @@ public class Catcheur extends Ennemi {
 
     public Catcheur(String nom) {
         // Valeurs par défaut pour un catcheur
-        super(nom, 100, 15, 0);
+        super(nom, 100, 30, 0);
         this.priseSignature = "Suplex suuuuuuu";
         this.enColere = false;
     }
@@ -56,5 +56,9 @@ public class Catcheur extends Ennemi {
         } else {
             super.attaquer(cible);
         }
+    }
+
+    public String toString() {
+        return "Catcheur{" +"nom: "+this.nom+", PV: "+this.pointsDeVie+", attaque: "+this.attaque+", defense: "+this.defense + "}";
     }
 }

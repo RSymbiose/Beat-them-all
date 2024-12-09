@@ -51,18 +51,24 @@ public abstract class Ennemi extends Personnages {
 
     @Override
     public void attaquer(Personnages cible) {
-        // Si l'ennemi est agressif, il a une chance de faire un coup critique
-        if (this.agressif && Math.random() < 0.2) {  // 20% de chance de coup critique
-            int attaqueInitiale = this.attaque;
-            System.out.println(this.nom + " prépare une attaque critique !");
-            this.attaque *= 1.5;  // Augmente les dégâts de 50%
-            super.attaquer(cible);
-            this.attaque = attaqueInitiale;  // Restaure l'attaque normale
+        // Vérifier si le joueur est charmé par Succube avant l'attaque
+        if (cible instanceof Succube && ((Succube) cible).estCharme(this)) {
+            System.out.println(this.nom + " ne peut pas attaquer " + cible.getNom() + " car il est charmé.");
         } else {
-            super.attaquer(cible);
-        }
+            // Si le joueur n'est pas charmé, attaquer comme d'habitude
+            // Si l'ennemi est agressif, il a une chance de faire un coup critique
+            if (this.agressif && Math.random() < 0.2) {  // 20% de chance de coup critique
+                int attaqueInitiale = this.attaque;
+                System.out.println(this.nom + " prépare une attaque critique !");
+                this.attaque *= 1.5;  // Augmente les dégâts de 50%
+                super.attaquer(cible);
+                this.attaque = attaqueInitiale;  // Restaure l'attaque normale
+            } else {
+                super.attaquer(cible);
+            }
 
-        // Possibilité de fuir après l'attaque
-        this.fuir();
+            // Possibilité de fuir après l'attaque
+            this.fuir();
+        }
     }
 }

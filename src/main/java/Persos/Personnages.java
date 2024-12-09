@@ -14,14 +14,15 @@ public abstract class Personnages {
     }
 
     public void attaquer(Personnages cible) {
-        int degats = Math.max(0, this.attaque - cible.defense);
+        int degats = Math.max(0, this.attaque - cible.defense);  // Calcul des dégâts en tenant compte de la défense
         System.out.println(this.nom + " attaque " + cible.nom + " et inflige " + degats + " points de dégâts.");
-        cible.prendreDegats(degats);
+        cible.prendreDegats(degats);  // Application des dégâts à la cible
     }
 
     public void prendreDegats(int degats) {
-        this.pointsDeVie -= degats;
-        System.out.println(this.nom + " perd " + degats + " points de vie. PV restants : " + this.pointsDeVie);
+        int dommagesReçus = Math.max(0, degats - this.defense);  // Réduction des dégâts par la défense
+        this.pointsDeVie -= dommagesReçus;
+        System.out.println(this.nom + " perd " + dommagesReçus + " points de vie. PV restants : " + this.pointsDeVie);
         if (!estVivant()) {
             System.out.println(this.nom + " est mort.");
         }

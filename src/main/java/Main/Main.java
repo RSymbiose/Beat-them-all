@@ -105,7 +105,7 @@ public class Main {
 
                             if (!monstre.estVivant()) {
                                 logFile.write(monstre.getNom() + " est vaincu.\n");
-                                System.out.println("Le monstre est vaincu !");
+                                System.out.println("L'adversaire est vaincu !");
                                 ennemisActuels.remove(0);
                                 niveau.clearEnemiesAtPosition(position); // Suppression du monstre de la position
                             }

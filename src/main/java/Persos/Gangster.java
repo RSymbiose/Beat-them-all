@@ -35,4 +35,8 @@ public class Gangster extends Ennemi {
             super.attaquer(cible);
         }
     }
+
+    public String toString() {
+        return "Gangster{" +"nom: "+this.nom+", PV: "+this.pointsDeVie+", attaque: "+this.attaque+", defense: "+this.defense + "}";
+    }
 }

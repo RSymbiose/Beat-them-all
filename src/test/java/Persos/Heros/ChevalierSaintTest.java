@@ -15,7 +15,9 @@ class ChevalierSaintTest {
     void Attaquer() {
         ChevalierSaint CS1 = new ChevalierSaint("Henri");
         Brigand B1 = new Brigand("Dalton");
-        ArrayList<Object> ennemi = new ArrayList<Object>(B1);
+        ArrayList<Object> ennemi = new ArrayList<Object>();
+        ennemi.add(B1);
+        System.out.println(ennemi);
         Jungle J1 = new Jungle();
         J1.setMap(ennemi);
         //Note: le test de one shot d'un ennemi par le héro est obligatoire, mais la quantité de dégats infligé est fait de manière random dans notre programme
@@ -24,5 +26,6 @@ class ChevalierSaintTest {
         int degats = B1.getPointsDeVie();
         B1.prendreDegats(degats);
         assertEquals(B1.getPointsDeVie(), 0);
+        System.out.println(ennemi);
     }
 }

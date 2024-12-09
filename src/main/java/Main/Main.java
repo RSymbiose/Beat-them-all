@@ -13,7 +13,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         Hero joueur = null;
-        Jungle niveau = null;
+        Carte niveau = null;
 
         try (FileWriter logFile = new FileWriter("game_log.txt")) {
             logFile.write("Début de la partie\n");
@@ -46,11 +46,14 @@ public class Main {
             // Choix de la carte
             System.out.println("\nChoisissez votre niveau:");
             System.out.println("1. Jungle");
-            System.out.print("Votre choix (1) : ");
+            System.out.println("2. Desert");
+            System.out.print("Votre choix (1-2) : ");
             int choixNiveau = scanner.nextInt();
 
             if (choixNiveau == 1) {
-                niveau = new Jungle("Jungle Mystérieuse", 10);
+                niveau = new Jungle();
+            }else if (choixNiveau == 2){
+                niveau = new Desert();
             }
 
             logFile.write("Carte choisie : " + niveau.getNom() + "\n");

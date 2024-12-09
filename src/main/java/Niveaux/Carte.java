@@ -1,9 +1,11 @@
 package Niveaux;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-public class Carte {
+public abstract class Carte {
     private double difficulty;
+    private int longueur;
     private ArrayList<Object> map; // Déclaration de la carte
     private String nom;            // Nouveau champ : nom de la carte
 
@@ -20,10 +22,22 @@ public class Carte {
         this.nom = nom;
     }
 
+    public ArrayList<Object> getEnemiesAtPosition(int position) {
+        ArrayList<Object> enemies = new ArrayList<>();
+        return enemies;
+    }
+
+    /**
+     * Supprime tous les ennemis d'une position donnée.
+     */
+    public void clearEnemiesAtPosition(int position) {   }
+
     // Getter et setter pour la difficulté
     public double getDifficulty() {
         return difficulty;
     }
+
+    public abstract void difficulte(int diff);
 
     public void setDifficulty(double difficulty) {
         this.difficulty = difficulty;
@@ -45,5 +59,13 @@ public class Carte {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public int getLongueur() {
+        return longueur;
+    }
+
+    public void setLongueur(int longueur) {
+        this.longueur = longueur;
     }
 }

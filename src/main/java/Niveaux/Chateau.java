@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Jungle extends Carte {
+public class Chateau extends Carte {
     private ArrayList<Object> map;
     private int longueur;
     private String nom;
     private Map<Object, Integer> enemyPositions;
 
-    public Jungle() {
+    public Chateau() {
         super();
-        this.nom = "Jungle";
+        this.nom = "Haut_Koenigsbourg";
         this.longueur = 9;
         this.map = new ArrayList<>();
         this.enemyPositions = new HashMap<>();
     }
 
-    public Jungle(String nom, int longueur) {
+    public Chateau(String nom, int longueur) {
         super();
         this.nom = nom;
         this.longueur = longueur;
@@ -57,9 +57,9 @@ public class Jungle extends Carte {
 
             int typeEnnemi = (int) (Math.random() * 3);
             Object ennemi = switch (typeEnnemi) {
-                case 0 -> new Brigand("Brigand_" + position);
-                case 1 -> new Catcheur("Catcheur_" + position);
-                default -> new Gangster("Gangster_" + position);
+                case 0 -> new Brigand("Chevalier_" + position);
+                case 1 -> new Catcheur("Jouteur_" + position);
+                default -> new Gangster("Chasseur_" + position);
             };
 
             map.add(ennemi);

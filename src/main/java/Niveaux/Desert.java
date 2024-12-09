@@ -8,21 +8,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Jungle extends Carte {
+public class Desert extends Carte {
     private ArrayList<Object> map;
     private int longueur;
     private String nom;
     private Map<Object, Integer> enemyPositions;
 
-    public Jungle() {
+    public Desert() {
         super();
-        this.nom = "Jungle";
+        this.nom = "Sahara";
         this.longueur = 9;
         this.map = new ArrayList<>();
         this.enemyPositions = new HashMap<>();
     }
 
-    public Jungle(String nom, int longueur) {
+    public Desert(String nom, int longueur) {
         super();
         this.nom = nom;
         this.longueur = longueur;
@@ -36,7 +36,7 @@ public class Jungle extends Carte {
 
         System.out.println("\n=== Génération de la carte ===");
         System.out.println("Difficulté : " + diff*3 + " ennemis à placer");
-        System.out.println("Longueur de la carte : " + longueur + " salles\n");
+        System.out.println("Longueur de la carte : " + longueur + " dunes\n");
 
         // Nettoyage de la carte précédente
         map.clear();
@@ -57,16 +57,16 @@ public class Jungle extends Carte {
 
             int typeEnnemi = (int) (Math.random() * 3);
             Object ennemi = switch (typeEnnemi) {
-                case 0 -> new Brigand("Brigand_" + position);
-                case 1 -> new Catcheur("Catcheur_" + position);
-                default -> new Gangster("Gangster_" + position);
+                case 0 -> new Brigand("Pilleur de Tombes_" + position);
+                case 1 -> new Catcheur("Mommie_" + position);
+                default -> new Gangster("Chasseur_" + position);
             };
 
             map.add(ennemi);
             enemyPositions.put(ennemi, position);
 
             System.out.println("- " + ennemi.getClass().getSimpleName() +
-                    " placé dans la salle " + position);
+                    " placé sur la dune " + position);
         }
 
         // Afficher un résumé des positions
@@ -74,7 +74,7 @@ public class Jungle extends Carte {
         for (int i = 0; i < longueur; i++) {
             ArrayList<Object> enemiesAtPos = getEnemiesAtPosition(i);
             if (!enemiesAtPos.isEmpty()) {
-                System.out.print("Salle " + i + " : ");
+                System.out.print("Dune " + i + " : ");
                 for (Object enemy : enemiesAtPos) {
                     System.out.print(enemy.getClass().getSimpleName() + " ");
                 }

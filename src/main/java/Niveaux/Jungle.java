@@ -94,6 +94,22 @@ public class Jungle extends Carte {
         return enemies;
     }
 
+    /**
+     * Supprime tous les ennemis d'une position donnée.
+     */
+    public void clearEnemiesAtPosition(int position) {
+        ArrayList<Object> toRemove = new ArrayList<>();
+        for (Map.Entry<Object, Integer> entry : enemyPositions.entrySet()) {
+            if (entry.getValue() == position) {
+                toRemove.add(entry.getKey());
+            }
+        }
+        for (Object enemy : toRemove) {
+            enemyPositions.remove(enemy); // Supprime les ennemis de la position
+            map.remove(enemy);           // Supprime les ennemis de la carte globale
+        }
+    }
+
     public int getLongueur() {
         return longueur;
     }

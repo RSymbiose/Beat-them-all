@@ -47,13 +47,16 @@ public class Main {
             System.out.println("\nChoisissez votre niveau:");
             System.out.println("1. Jungle");
             System.out.println("2. Desert");
-            System.out.print("Votre choix (1-2) : ");
+            System.out.println("3. Chateau");
+            System.out.print("Votre choix (1-3) : ");
             int choixNiveau = scanner.nextInt();
 
             if (choixNiveau == 1) {
                 niveau = new Jungle();
             }else if (choixNiveau == 2){
                 niveau = new Desert();
+            }else if (choixNiveau == 3){
+                niveau = new Chateau();
             }
 
             logFile.write("Carte choisie : " + niveau.getNom() + "\n");
